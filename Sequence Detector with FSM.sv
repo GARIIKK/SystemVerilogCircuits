@@ -11,6 +11,10 @@ module sequence_detector (
         S4  // Detected '1011'
     } state_t;
 
+    //Good approach of using typedef, especially with this feature of auto counting/definition of states
+
+    // I propose to add "_ff", "_s", or "_reg" for all register in design. It also give better understanding of code.
+    //You immideately can understand is it register or comb logic
     state_t current_state, next_state;
 
     // State transition
@@ -20,6 +24,8 @@ module sequence_detector (
         else
             current_state <= next_state;
     end
+
+    //Good approach for FSM comb and seq part split
 
     // Next state logic
     always_comb begin
@@ -37,5 +43,11 @@ module sequence_detector (
     always_comb begin
         detected = (current_state == S4);
     end
+    // Here we can even use ASSIGN construction instead of always_comb
 endmodule
-//sometext
+/*
+In general it looks really cool. What I propose to add: _i, _o for inputs and outputs respectivelly.
+With such approach it much more easier to instantiate module in the top design/wrapper. Also easier to analyze internal functionality.
+
+Small hint - name of module should be fully equal for name of file. Because when complete design is compiling by script we receive Errors for unconsistency
+*/

@@ -38,4 +38,11 @@ module carry_lookahead_adder #(
 
     assign Cout = C[N];
 endmodule
-//sometext
+
+//File type is .vs , should be .sv))
+/*
+In general it looks really cool. What I propose to add: _i, _o for inputs and outputs respectivelly.
+With such approach it much more easier to instantiate module in the top design/wrapper. Also easier to analyze internal functionality.
+
+Small hint - name of module should be fully equal for name of file. Because when complete design is compiling by script we receive Errors for unconsistency
+*/

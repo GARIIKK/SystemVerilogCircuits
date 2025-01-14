@@ -43,4 +43,11 @@ module ripple_carry_adder #(
         end
     endgenerate
 endmodule
-//sometext
+/*
+In general it looks really cool. What I propose to add: _i, _o for inputs and outputs respectivelly.
+With such approach it much more easier to instantiate module in the top design/wrapper. Also easier to analyze internal functionality.
+
+Small hint - name of module should be fully equal for name of file. Because when complete design is compiling by script we receive Errors for unconsistency
+
+Great approach with generate block for instantiation of same blocks of code/modules
+*/
